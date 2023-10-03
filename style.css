@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&family=Calligraffitti&display=swap');
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to right top, #e964b0, #e35cb7, #da55bf, #d04fc8, #c24cd2, #9e69ea, #707ef9, #2b8fff, #00b0ff, #00ccff, #00e5fe, #5ffbf1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.memory-game {
+
+    text-align: center;
+
+}
+
+
+h1 {
+    font-family: 'Calligraffitti', cursive;
+    font-weight: 700;
+    font-size: 7rem;
+    position: absolute;
+    text-shadow: -15px 5px 20px #ced0d3;
+    top: 1%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: #F9f1cc;
+    text-shadow: 5px 5px 0px #FFB650,
+        10px 10px 0px #FFD662,
+        15px 15px 0px #FF80BF,
+        20px 20px 0px #EF5097,
+        25px 25px 0px #6868AC,
+        30px 30px 0px #90B1E0;
+}
+
+
+
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-20px);
+    }
+
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+
+.memory-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 40px;
+    justify-content: center;
+    margin-top: 198px;
+}
+
+.card {
+
+    background: radial-gradient(circle at 100% 100%, #3FCEF6 0, #3FCEF6 2px, transparent 2px) 0% 0%/4px 4px no-repeat,
+        radial-gradient(circle at 0 100%, #3FCEF6 0, #3FCEF6 2px, transparent 2px) 100% 0%/8px 8px no-repeat,
+        radial-gradient(circle at 100% 0, #3FCEF6 0, #3FCEF6 2px, transparent 2px) 0% 100%/8px 8px no-repeat,
+        radial-gradient(circle at 0 0, #3FCEF6 0, #3FCEF6 2px, transparent 2px) 100% 100%/8px 8px no-repeat,
+        linear-gradient(#3FCEF6, #3FCEF6) 50% 50%/calc(100% - 12px) calc(100% - 16px) no-repeat,
+        linear-gradient(#3FCEF6, #3FCEF6) 50% 50%/calc(100% - 16px) calc(100% - 12px) no-repeat,
+        conic-gradient(#ff0000 0%, #ffff00 16.67%, #00ff00 33.33%, #00ffff 50%, #0000ff 66.67%, #ff00ff 83.33%, #ff0000 100%);
+    padding: 10px;
+    box-sizing: border-box;
+
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+    transform-style: preserve-3d;
+    color: #f0f0f0;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.card.back {
+
+    background: radial-gradient(circle at 100% 100%, #ffffff 0, #ffffff 2px, transparent 2px) 0% 0%/8px 8px no-repeat,
+        radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 2px, transparent 2px) 100% 0%/8px 8px no-repeat,
+        radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 2px, transparent 2px) 0% 100%/8px 8px no-repeat,
+        radial-gradient(circle at 0 0, #ffffff 0, #ffffff 2px, transparent 2px) 100% 100%/8px 8px no-repeat,
+        linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 12px) calc(100% - 16px) no-repeat,
+        linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 16px) calc(100% - 12px) no-repeat,
+        conic-gradient(#ff0000 0%, #ffff00 16.67%, #00ff00 33.33%, #00ffff 50%, #0000ff 66.67%, #ff00ff 83.33%, #ff0000 100%);
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+
+    transform: rotateY(180deg);
+
+    font-size: 50px;
+}
+
+.card.matched {
+    visibility: hidden;
+}
+
+
+
+button {
+    background-color: #2265ad;
+    /* Azul */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 105%;
+    color: rgb(102, 102, 102);
+    padding: 10px 0;
+    text-align: center;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .memory-board {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .card {
+        width: 80px;
+        height: 80px;
+        font-size: 12px;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 92%;
+        color: rgb(102, 102, 102);
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    h1{
+        font-size: 6rem;
+        top: 10%;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    @keyframes bounce {
+
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            transform: translateY(0);
+        }
+
+        40% {
+            transform: translateY(-10px);
+        }
+
+        60% {
+            transform: translateY(-5px);
+        }
+    }
+}
