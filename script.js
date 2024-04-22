@@ -17,7 +17,6 @@ function createCard(emoji) {
     const card = document.createElement('div');
     card.classList.add('card');
     card.dataset.emoji = emoji;
-    card.textContent = 'ElasNaTech';
 
 
     card.addEventListener('click', () => flipCard(card));
